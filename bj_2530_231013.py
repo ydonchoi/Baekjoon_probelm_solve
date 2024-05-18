@@ -9,7 +9,6 @@
 # 오븐구이가 끝나는 시각을 계산하는 프로그램을 작성하시오.
 #########################
 
-#%% init_solution
 
 def cooking_end_time(duration: int) -> int:
     import datetime
