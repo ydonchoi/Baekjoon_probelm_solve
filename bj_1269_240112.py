@@ -1,13 +1,19 @@
-# MySolution
-# def donnysolution(a,b,A,B):
-    # init_231103
-    # A.extend(B)
-    # union = list(set(A))
-    # intersection = []
-    # for i in range(a):
-    #     for j in range(b):
-    #         if A[i] == B[j]: intersection.append(A[i])
-    # print(len(union)-len(intersection))
+# 문제번호: 1269
+# 대칭 차집합
+# url: https://www.acmicpc.net/problem/1269
+# 23.11.03. / 24.01.12.
+
+##############################################
+## <My_Solution>_init_231103
+## def donnysolution(a,b,A,B):
+##     A.extend(B)
+##     union = list(set(A))
+##     intersection = []
+##     for i in range(a):
+##         for j in range(b):
+##             if A[i] == B[j]: intersection.append(A[i])
+##     print(len(union)-len(intersection))
+##############################################
 
 # GPT 생성 모범 답안 1_엄청 간단하게 푸네 헤헤
 def solution_1(A,B):
@@ -41,3 +47,4 @@ def main():
         
 if __name__=='__main__':
     main()
+

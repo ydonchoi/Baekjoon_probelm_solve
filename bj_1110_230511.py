@@ -2,7 +2,6 @@
 # 더하기 싸이클
 # url: https://www.acmicpc.net/problem/1110
 
-#%%
 def validation_num(num: int) -> bool:
     return True if len(str(num)) < 3 else False   # 두 자리 숫자인지 검증
 
@@ -41,6 +40,5 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
 
-# %%
+# fin.    
