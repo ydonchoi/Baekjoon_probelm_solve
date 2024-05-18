@@ -9,7 +9,6 @@
 ## 한 개 이상의 연속된 수들의 곱이 최대가 되는 부분을 찾아서 그 값을 출력하시오.
 #########################
 
-#%%
 def generate_random_float(num: int) -> list[float]:
     import random
     nums = [random.randint(0,1)+round(random.random(),1) for _ in range(num)]
