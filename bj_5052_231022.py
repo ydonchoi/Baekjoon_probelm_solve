@@ -14,7 +14,6 @@
 #########################
 
 def gen_tel_number_list(num: int) -> list[int]:
-    import random
     tel = random.sample(range(1,1000000), k=num)
     return tel
     
@@ -39,6 +38,7 @@ def main():
         print("==="*10)
             
 if __name__ == '__main__':
+    import random
     main()
 
 

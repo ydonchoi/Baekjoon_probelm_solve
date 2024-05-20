@@ -14,7 +14,6 @@
 
 
 def Max_subarray(x):
-    import numpy as np
     x_list = list(np.arange(1,x+1))
     sum_maxsubarray = 2**len(x_list)-1
     return sum_maxsubarray
@@ -24,6 +23,7 @@ def main():
     Max_subarray(x)
 
 if __name__ == "__main__":
+    import numpy as np
     main()
 
     
