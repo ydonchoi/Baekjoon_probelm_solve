@@ -17,7 +17,7 @@ class CheckInOffice():
         self.name = name
             
     def records(self, name):
-        if not self.name in self.names:
+        if self.name not in self.names:
             print(self.name, 'enter')
             self.names.append(name)
         else:

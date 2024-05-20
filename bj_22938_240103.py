@@ -18,8 +18,7 @@
 '''
 
 def between_circles(x1,y1,x2,y2):
-    dist_xy = ((x2**2-x1**2)+(y2**2-y1**2))**(0.5)
-    return dist_xy
+    return ((x2**2-x1**2)+(y2**2-y1**2))**(0.5)
 
 def main():
     x1,y1,r1 = map(int, input('첫번째 과녁 중심과 반지름 입력(x1,y1,r1):').split())

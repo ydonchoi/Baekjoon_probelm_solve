@@ -26,8 +26,7 @@ def AmsterdamDistance(M,N,R,n1,m1,n2,m2):
     radius_n = R / N
     theta = 180 / M
     lm = ((2*3.14*radius_n)*min(m1,m2)) * (theta/360)
-    dist = radius_n*(abs(m1-m2)) + (lm*(abs(n1-n2)))
-    return dist
+    return radius_n*(abs(m1-m2)) + (lm*(abs(n1-n2)))
 
 def main():
     M, N, R = map(int, input('거리의 세로와 가로 구획 수(M, N), 반지름(R) 입력:').split(' '))

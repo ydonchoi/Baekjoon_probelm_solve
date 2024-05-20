@@ -17,20 +17,15 @@
 
 # My_Solution
 def gen_sell_quantity(quantity):
-    sell_list = [input('판매 도서명:') for _ in range(quantity)]
-    return sell_list
+    return [input('판매 도서명:') for _ in range(quantity)]
 
 def check_unique_book_list(sell_list):
-    unique_book_list = list(set(sell_list))
-    return unique_book_list
+    return list(set(sell_list))
 
 def check_best_seller(sell_list, unique_book_list):
     best_seller = {}
     for ind_book in unique_book_list:
-        cnt = 0
-        for book in sell_list:
-            if ind_book == book:
-                cnt += 1
+        cnt = sum(1 for book in sell_list if ind_book == book)
         best_seller[ind_book] = cnt
     return best_seller
 

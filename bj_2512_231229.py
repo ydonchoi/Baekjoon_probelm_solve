@@ -13,12 +13,13 @@
 
 def distribution_budget(req_budget: int, tot_budget: int) -> int:
     distribution: int = tot_budget / len(req_budget)
-    each_budget: list[int] = [i if i < distribution else distribution for i in req_budget]
+    each_budget: list[int] = [min(i, distribution) for i in req_budget]
     residual: list[int] = [distribution - each_budget[k] for k in range(len(each_budget))]
-    if residual.count(0) < len(residual):
-        max_budget = int(distribution + (sum(residual) / residual.count(0)))
-    else: max_budget = int(distribution)
-    return max_budget
+    return (
+        int(distribution + (sum(residual) / residual.count(0)))
+        if residual.count(0) < len(residual)
+        else distribution
+    )
 
 def main():
     each_budget: int = random.sample(range(1, int(input('지방정부 최대 요청 가능 예산액:'))), int(input('요청 지방정부 수:')))

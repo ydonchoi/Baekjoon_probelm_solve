@@ -19,18 +19,14 @@ def count_passwords(s, m):
     n = len(s)
     count = 0
     start = 0
-    end = 1
-    
-    while end <= n:
+    for end in range(1, n + 1):
         cnt = [0] * 4
         for i in range(start, end):
             cnt[ord(s[i]) - ord('A')] += 1
-            
+
         if all(cnt[i] >= m[i] for i in range(4)):
             count += 1
         start = end
-        end += 1
-        
     return count
 
 def main():

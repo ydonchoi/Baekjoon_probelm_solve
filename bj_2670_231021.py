@@ -10,8 +10,7 @@
 #########################
 
 def generate_random_float(num: int) -> list[float]:
-    nums = [random.randint(0,1)+round(random.random(),1) for _ in range(num)]
-    return nums
+    return [random.randint(0,1)+round(random.random(),1) for _ in range(num)]
 
 def my_solution(nums: list[int]) -> int:
     Prod = 0

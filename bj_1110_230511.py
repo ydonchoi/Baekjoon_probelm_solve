@@ -3,11 +3,11 @@
 # url: https://www.acmicpc.net/problem/1110
 
 def validation_num(num: int) -> bool:
-    return True if len(str(num)) < 3 else False   # 두 자리 숫자인지 검증
+    return len(str(num)) < 3   # 두 자리 숫자인지 검증
 
 def plus_cycle_str(num: int) -> int:
     tmp, cnt = str(num), 0
-    tmp = '0'+tmp[0] if len(tmp) < 2 else tmp
+    tmp = f'0{tmp[0]}' if len(tmp) < 2 else tmp
     while True:
         a, b = tmp[0],tmp[1]
         cnt +=1

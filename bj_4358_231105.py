@@ -13,7 +13,7 @@
 
 def enrollment() -> bool:
     add = input('데이터를 등록하겠습니까?(Y/N)').upper()
-    return True if add == 'Y' else False
+    return add == 'Y'
 
 def add_tree(tree: dict[str]) -> dict[str]:
     k, v = map(str, input('추가할 나무 종류와 이름 순서로 입력해주세요(30글자 이내):').split())

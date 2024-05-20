@@ -12,15 +12,14 @@
 #########################
 
 def create_lent_catalogue(num):
-    area_list = [int(input('임대면적:')) for _ in range(num)]
-    return area_list
+    return [int(input('임대면적:')) for _ in range(num)]
 
 def is_able_to_rent(area_list):
     lentable_catalogue = {}
     for area in area_list:
         for x in range(1, area):
             if (area-x) % (2*x+1) == 0:
-                lentable_catalogue.update({area: (x, (area-x)/(2*x+1))})
+                lentable_catalogue[area] = (x, (area-x)/(2*x+1))
     return lentable_catalogue
 
 def lent_apartment(area_list, lentable_catalogue):

@@ -14,8 +14,7 @@
 #########################
 
 def gen_tel_number_list(num: int) -> list[int]:
-    tel = random.sample(range(1,1000000), k=num)
-    return tel
+    return random.sample(range(1,1000000), k=num)
     
 def check_tel_number_list(num: int, tel: list[int]) -> list[bool]:
     check = []
@@ -28,9 +27,7 @@ def check_tel_number_list(num: int, tel: list[int]) -> list[bool]:
 
 def main():
     T = int(input('테스트 횟수(50회 이하 입력):'))
-    cnt = 0
-    while cnt < T:
-        cnt += 1
+    for _ in range(T):
         num = int(input('전화번호 갯수:'))
         tel = gen_tel_number_list(num)
         check = check_tel_number_list(num, tel)
