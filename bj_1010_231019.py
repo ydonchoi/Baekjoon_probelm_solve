@@ -20,15 +20,10 @@ def solution_1(W:int, E:int) -> function:
     return comb(E, W)
 
 def comb(n:int, r:int) -> int:
-    if r == 0 or n == r:
-        return 1
-    return comb(n-1, r-1) + comb(n-1, r)
+    return 1 if r == 0 or n == r else comb(n-1, r-1) + comb(n-1, r)
 
 def comb_with_factorial(n:int) -> int:
-    if n == 0:
-        return 1
-    else:
-        return n * comb_with_factorial(n-1)        
+    return 1 if n == 0 else n * comb_with_factorial(n-1)        
 
 def solution_2(W:int, E:int) -> float:
     return int(comb_with_factorial(E) / (comb_with_factorial(W)*comb_with_factorial(E-W)))
