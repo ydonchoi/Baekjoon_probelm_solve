@@ -19,18 +19,19 @@ def is_able_to_rent(area_list):
     lentable_catalogue = {}
     for area in area_list:
         for x in range(1, area):
-            if int((area-x)/(2*x+1)) > 0:
-                lentable_catalogue.update({area: (x, int((area-x)/(2*x+1)))})
+            if (area-x) % (2*x+1) == 0:
+                lentable_catalogue.update({area: (x, (area-x)/(2*x+1))})
     return lentable_catalogue
 
 def lent_apartment(area_list, lentable_catalogue):
     unable_to_lent = 0
     for area in area_list:
-        if not area in lentable_catalogue.keys():
+        if area in lentable_catalogue.keys():
+            print("this is an apartment to lent. would you lent?")
+        else:
             unable_to_lent += 1
             print('꽝!!')
-        else:
-            print("this is an apartment to lent. would you lent?")
+
     return unable_to_lent
         
 def main():
