@@ -30,11 +30,12 @@ def AmsterdamDistance(M,N,R,n1,m1,n2,m2):
 
 def main():
     M, N, R = map(int, input('거리의 세로와 가로 구획 수(M, N), 반지름(R) 입력:').split(' '))
-    m1, n1, m2, n2 = map(int, input('A장소(m1,n1)와 B장소(m2,n2)의 좌표 입력:').split(' '))
+    m1, n1 = map(int, input('A장소(m1,n1)의 좌표 입력:').split(' '))
+    m2, n2 = map(int, input('B장소(m2,n2)의 좌표 입력:').split(' '))
     if n1 <= (N+1) and n2 <= (N+1) and m1 <= (M+1) and m2 <= (M+1):
-        print(M,N,R,'\n',m1,n1,m2,n2)
+        print(f'세로구획:{M}, 가로구획:{N}, 반지름:{R}\nA:({m1},{n1}) -> B:({m2},{n2})')
         dist = AmsterdamDistance(M,N,R,m1,n1,m2,n2)
-        print(dist)
+        print(f'거리: {dist}')
     else:
         print(f'장소는 {M+1, N+1}보다 크지 않아야 합니다.')
   

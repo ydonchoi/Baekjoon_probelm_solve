@@ -16,7 +16,7 @@
 - => 동쪽 combination 서쪽 으로 solution 작성
 '''
 
-def solution_1(W:int, E:int) -> function:
+def solution_1(W:int, E:int):
     return comb(E, W)
 
 def comb(n:int, r:int) -> int:
@@ -29,7 +29,7 @@ def solution_2(W:int, E:int) -> float:
     return int(comb_with_factorial(E) / (comb_with_factorial(W)*comb_with_factorial(E-W)))
 
 def main():
-    W, E = map(int, input('서쪽(W), 동쪽(E) 입력 (W < E):').split(','))
+    W, E = map(int, input('서쪽(W), 동쪽(E) 입력 (W < E):').split(' '))
     print(f'solution_1: {solution_1(W, E)}')
     print(f'solution_2: {solution_2(W, E)}')
 

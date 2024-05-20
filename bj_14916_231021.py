@@ -27,7 +27,7 @@ def main():
     R, x, M = change_coins(money)
     print(f'거스름돈: {R}원\n5원짜리 동전: {x}개\n2원짜리 동전: {M-x}개\n최소동전갯수: {M}개')
     
-if __name__ == '__main__'():
+if __name__ == '__main__':
     main()
 
 
