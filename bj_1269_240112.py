@@ -28,7 +28,6 @@ def solution_2(A, B):
     return len(A_set|B_set), len(A_set&B_set), len(A_set|B_set)-len(A_set&B_set)
 
 def main():
-    import random
     T = int(input('테스트횟수:'))
     for t in range(T):
         trial = input('집합 자동 생성(0 입력) 또는 집합 직접 입력(1 입력):')
@@ -46,5 +45,6 @@ def main():
         else: print(f'{t+1}번째 테스트는 실패')
         
 if __name__=='__main__':
+    import random
     main()
 

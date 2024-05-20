@@ -10,7 +10,6 @@
 #########################
 
 def generate_random_float(num: int) -> list[float]:
-    import random
     nums = [random.randint(0,1)+round(random.random(),1) for _ in range(num)]
     return nums
 
@@ -33,6 +32,7 @@ def main():
     
 
 if __name__ == '__main__':
+    import random
     main()
 
 

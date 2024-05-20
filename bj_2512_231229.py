@@ -21,13 +21,13 @@ def distribution_budget(req_budget: int, tot_budget: int) -> int:
     return max_budget
 
 def main():
-    import random
     each_budget: int = random.sample(range(1, int(input('지방정부 최대 요청 가능 예산액:'))), int(input('요청 지방정부 수:')))
     total_budget: int = int(input('분배가능한 최대 예산액'))
     result: int = distribution_budget(each_budget, total_budget)
     print(result)
     
 if __name__ == '__main__':
+    import random
     main()
 
 

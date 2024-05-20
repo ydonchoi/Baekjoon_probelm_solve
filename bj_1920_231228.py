@@ -24,7 +24,6 @@ def binarysearch(list, target):
     return 0
 
 def main():
-    import random
     list = random.sample(range(1,int(input('범위 입력:'))), int(input('갯수 입력:')))
     list = sorted(list)
     Mytarget = int(input('찾으려는 정수 X 입력:'))
@@ -32,6 +31,7 @@ def main():
     print(result)
 
 if __name__ == '__main__':
+    import random
     main()
 
 # fin.

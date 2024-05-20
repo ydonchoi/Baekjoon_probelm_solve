@@ -20,13 +20,13 @@ def wood_cutter(wood, M):
     return H
 
 def main():    
-    import random
     wood = random.sample(range(1, 100), int(input('나무 갯수')))
     M = int(input('가져갈 나무의 총 길이:'))
     H = wood_cutter(wood, M)
     print(H)
 
 if __name__ == '__main__':
+    import random
     main()
     
 

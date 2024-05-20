@@ -11,7 +11,6 @@
 
 
 def cooking_end_time(duration: int) -> int:
-    import datetime
     H = int(datetime.datetime.today().strftime("%H"))
     M = int(datetime.datetime.today().strftime("%M"))
     S = int(datetime.datetime.today().strftime("%S"))
@@ -39,6 +38,7 @@ def main():
     print(f'종료시각:  {H} : {M} : {S}')
     
 if __name__ == '__main__':
+    import datetime
     main()
 
 

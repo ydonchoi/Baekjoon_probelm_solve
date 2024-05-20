@@ -15,7 +15,6 @@
 # # 판매되는 책 중에서 가장 많이 팔린 책의 도서명(key)을 찾는다.
 # ''''''''''''''''''
 
-#%%
 # My_Solution
 def gen_sell_quantity(quantity):
     sell_list = [input('판매 도서명:') for _ in range(quantity)]
