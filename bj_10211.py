@@ -19,7 +19,8 @@ def Max_subarray(x):
 
 def main():
     x = int(input('정수형 배열의 크기(N):'))
-    Max_subarray(x)
+    max_subarray = Max_subarray(x)
+    print(f'배열의 부분집합 최대 합:', max_subarray)
 
 if __name__ == "__main__":
     import numpy as np
