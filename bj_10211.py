@@ -18,7 +18,7 @@ def Max_subarray(x):
     return 2**len(x_list)-1
 
 def main():
-    x = int(input('정수형 배열의 크기(N):')
+    x = int(input('정수형 배열의 크기(N):'))
     Max_subarray(x)
 
 if __name__ == "__main__":
