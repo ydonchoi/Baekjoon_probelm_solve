@@ -11,28 +11,37 @@
 ## 상근이는 버튼을 누르면 화면의 모든 B는 BA로, A는 B로 바뀐다는 사실을 알게 되었다. 
 ###########################
 
-'''
-(문제해결)
-k=1: A -> B
-k=2: B -> BA
-k=3: BA -> BAB
-k=4: BAB -> BABBA
-...
-k=10: A는 34개, B는 55개 출력됨
-* 문자열 대체 문제
-'''
+# (문제해결)
+# k=1: A -> B
+# k=2: B -> BA
+# k=3: BA -> BAB
+# k=4: BAB -> BABBA
+# ...
+# k=10: A는 34개, B는 55개 출력됨
+# * 문자열 대체 문제
 
-# init version
-out = 'A'
-k = int(input('버튼을 누를 횟수(회):'))
-for _ in range(k):
-    temp = ''
-    for i in range(len(out)):
-        if out[i] == 'A': temp += 'B'
-        else:
-            temp += 'BA'
-    out = temp
-print(out)   
+# My_solution_revised(24.06.06.)
+def convert_chr(chr: str) -> str:
+    if chr == "A":
+        return "B"
+    else:
+        return "BA"
+
+def converting(input: str) -> str:
+    output = ''
+    for i in range(len(input)):
+        output += convert_chr(input[i])
+    return output
+
+def main():
+    display = "A"
+    press_button = int(input("버튼 누를 횟수: "))
+    for _ in range(press_button):
+        display = converting(display)
+    print(display)
+
+if __name__ == "__main__":
+    main()
 
 
 # fin.
