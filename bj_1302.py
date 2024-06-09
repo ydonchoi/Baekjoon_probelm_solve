@@ -16,13 +16,13 @@
 # ''''''''''''''''''
 
 # My_Solution
-def gen_sell_quantity(quantity):
+def gen_sell_quantity(quantity: int) -> list:
     return [input('판매 도서명:') for _ in range(quantity)]
 
-def check_unique_book_list(sell_list):
+def check_unique_book_list(sell_list: list) -> list:
     return list(set(sell_list))
 
-def check_best_seller(sell_list, unique_book_list):
+def check_best_seller(sell_list: list, unique_book_list: list) -> dict:
     best_seller = {}
     for ind_book in unique_book_list:
         cnt = sum(1 for book in sell_list if ind_book == book)
