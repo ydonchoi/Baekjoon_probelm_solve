@@ -19,25 +19,12 @@
 # - 따라서 N 좌표에서의 이동 후, M 좌표에서의 이동을 하는 것을 최단 거리로 계산
 # '''
 
-def calc_radius(R: int, N: int) -> int:
-    return  R/N
 
-def calc_theta(M: int) -> int:
-    return 180/M
-
-def properties(func):
-    def wrapper(*args, **kwargs):
-        res = func(*args, **kwargs)
-        return res
-    return wrapper
-
-@perperties
-def calc_lm(m1: int, m2: int) -> int:
-    return ((2*3.14*calc_radius(R, N)*min(m1,m2)) * (calc_theta(M)/360)
-
-@perperties
-def AmsterdamDistance(m1: int, n1: int, m2: int, n2: int) -> int:
-    return calc_radius(R, N)*(abs(m1-m2)) + (calc_lm(m1, m2)*(abs(n1-n2)))
+def AmsterdamDistance(M,N,R,n1,m1,n2,m2):
+    radius_n = R / N
+    theta = 180 / M
+    lm = ((2*3.14*radius_n)*min(m1,m2)) * (theta/360)
+    return radius_n*(abs(m1-m2)) + (lm*(abs(n1-n2)))
 
 def main():
     M, N, R = map(int, input('거리의 세로와 가로 구획 수(M, N), 반지름(R) 입력:').split(' '))
@@ -45,7 +32,7 @@ def main():
     m2, n2 = map(int, input('B장소(m2,n2)의 좌표 입력:').split(' '))
     if n1 <= (N+1) and n2 <= (N+1) and m1 <= (M+1) and m2 <= (M+1):
         print(f'세로구획:{M}, 가로구획:{N}, 반지름:{R}\nA:({m1},{n1}) -> B:({m2},{n2})')
-        dist = AmsterdamDistance(m1,n1,m2,n2)
+        dist = AmsterdamDistance(M,N,R,m1,n1,m2,n2)
         print(f'거리: {dist}')
     else:
         print(f'장소는 {M+1, N+1}보다 크지 않아야 합니다.')
