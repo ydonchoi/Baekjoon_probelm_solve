@@ -13,7 +13,7 @@
 ## (출력)  절단기 높이(H)
 #########################
 
-def wood_cutter(wood, M):
+def wood_cutter(wood:int, M:int) -> int:
     H = (sum(wood) - M) / len(wood)
     wood = [i if i >= H else 0 for i in wood]
     H = (sum(wood) - M) / (len(wood)-wood.count(0))

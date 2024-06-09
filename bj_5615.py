@@ -11,10 +11,10 @@
 ## 동규 부동산의 카탈로그에서 아파트 면적이 주어질 떄, 있을 수 없는 아파트의 수를 구하는 프로그램을 작성하시오.
 #########################
 
-def create_lent_catalogue(num):
+def create_lent_catalogue(num:int) -> list[int]:
     return [int(input('임대면적:')) for _ in range(num)]
 
-def is_able_to_rent(area_list):
+def is_able_to_rent(area_list:list[int]) -> dict:
     lentable_catalogue = {}
     for area in area_list:
         for x in range(1, area):
@@ -22,7 +22,7 @@ def is_able_to_rent(area_list):
                 lentable_catalogue[area] = (x, (area-x)/(2*x+1))
     return lentable_catalogue
 
-def lent_apartment(area_list, lentable_catalogue):
+def lent_apartment(area_list:list, lentable_catalogue:dict) -> int:
     unable_to_lent = 0
     for area in area_list:
         if area in lentable_catalogue.keys():

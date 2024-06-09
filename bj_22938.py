@@ -17,7 +17,7 @@
 - 두 과녁(원)이 겹치지 않으려면 두 원의 중심 간 거리가 두 원의 반지름 합보다 작지 않아야 한다.
 '''
 
-def between_circles(x1,y1,x2,y2):
+def between_circles(x1:int, y1:int, x2:int, y2:int) -> int:
     return ((x2**2-x1**2)+(y2**2-y1**2))**(0.5)
 
 def main():

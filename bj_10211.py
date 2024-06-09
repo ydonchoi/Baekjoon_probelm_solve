@@ -13,7 +13,7 @@
 ###########################
 
 
-def Max_subarray(x):
+def Max_subarray(x:int) -> int:
     x_list = list(np.arange(1,x+1))
     return 2**len(x_list)-1
 

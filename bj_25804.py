@@ -21,7 +21,7 @@
 # '''
 
 
-def radius_list(r,a,b):
+def radius_list(r:int, a:int, b:int) -> list:
     radius = [r]
     idx = 0
     while radius[idx] > 0:
@@ -35,7 +35,7 @@ def radius_list(r,a,b):
     return radius
 
 
-def Inf_symbol_area(r,a,b):
+def Inf_symbol_area(r:int, a:int, b:int) -> int:
     area = [3.14*(k**2) for k in radius_list(r,a,b)]
     return sum(area)
 

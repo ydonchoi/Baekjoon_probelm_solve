@@ -23,7 +23,7 @@ def binarysearch(list, target):
             start = midNum + 1
     return 0
 
-def main():  # sourcery skip: avoid-builtin-shadow
+def main():
     list = random.sample(range(1,int(input('범위 입력:'))), int(input('갯수 입력:')))
     list = sorted(list)
     Mytarget = int(input('찾으려는 정수 X 입력:'))

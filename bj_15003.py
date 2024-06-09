@@ -20,7 +20,7 @@
 # '''
 
 
-def AmsterdamDistance(M,N,R,n1,m1,n2,m2):
+def AmsterdamDistance(M:int, N:int, R:int, n1:int, m1:int, n2:int, m2:int) -> int:
     radius_n = R / N
     theta = 180 / M
     lm = ((2*3.14*radius_n)*min(m1,m2)) * (theta/360)

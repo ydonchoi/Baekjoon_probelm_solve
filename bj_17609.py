@@ -24,19 +24,19 @@
 # ''''''''''''''''''
 
 
-def even_symmetry_sen(txt):
+def even_symmetry_sen(txt: str) -> str:
     forward = txt[:(len(txt)//2)]
     backward = txt[:(len(txt)//2)-1:-1]
     if forward == backward: print(txt,':',0)
     else: similar_symmetry_sen(txt)
 
-def odd_symmetry_sen(txt):
+def odd_symmetry_sen(txt: str) -> str:
     forward = txt[:(len(txt)//2)]
     backward = txt[:(len(txt)//2):-1]
     if forward == backward: print(txt,':',0)
     else: similar_symmetry_sen(txt)
 
-def similar_symmetry_sen(txt):
+def similar_symmetry_sen(txt:str):
     txt_re = txt
     for k in range((len(txt_re)//2)+1):
         if txt_re[k] != txt_re[-k-1]:

@@ -29,18 +29,18 @@ def conv_deco(func):
         return result
     return wrapper
 
-def compute_1(S):
+def compute_1(S:str) -> str:
     return S + 'A'
 
-def compute_2(S):
+def compute_2(S:str) -> str:
     return S[::-1] + 'B'
 
-def compute_3(S):
+def compute_3(S:str) -> str:
     S += 'A'
     return S[::-1] + 'B'
 
 @conv_deco
-def converting(S: str, T:str):
+def converting(S: str, T:str) -> str:
     idx = len(S)-1
     if S == T[idx]:
         return compute_1(S)
@@ -50,7 +50,7 @@ def converting(S: str, T:str):
         return compute_3(S)
 
 @conv_deco
-def judge_convertable(S: str, T:str):
+def judge_convertable(S: str, T:str) -> bool:
     while len(S) < len(T):
         S = converting(S, T)
         if S != T[:len(S)]:

@@ -22,7 +22,7 @@ def add_tree(tree: dict[str]) -> dict[str]:
     tree[k].append(v)
     return tree
 
-def confirm_data(tree: dict[str]) -> None:
+def confirm_data(tree: dict[str]):
     k_sort = sorted(tree)
     print(f'현재 등록된 데이터는 {len(tree.values())}개입니다.')
     for key in k_sort:
