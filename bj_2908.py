@@ -14,17 +14,33 @@
 ## 상수의 대답을 출력하는 프로그램을 작성하시오.
 #########################
 
-import random
-def read_num(s):
-    num = []
-    for i in range(s):
-        for j in range(3):
-            num.append(str(random.randint(1,9)))
-        num.append("".join(num[i:]))
-        del num[i:i+3]
-    print(f'칠판에 적힌 숫자는 총 {s}개 입니다.')
-    for m in range(len(num)):
-        print("{}번째 숫자는 {}이며, 상근이는 {}이라고 읽습니다.".format(m+1, num[m], num[m][::-1]))
+def two_number(num: int) -> int:
+    num_1, num_2 = map(int, [random.randint(100, 1000) for _ in range(2)])
+    return num_1, num_2
 
-# 문) 칠판에 제시된 숫자는 총 20개입니다.
-read_num(20)
+def read_number(num_1:int, num_2:int) -> int:
+    num_1, num_2 = str(num_1), str(num_2)
+    rv_num_1, rv_num_2 = int(num_1[::-1]), int(num_2[::-1])
+    return rv_num_1, rv_num_2
+
+def sangsu_answer(rv_num_1: int, rv_num_2: int) -> int:
+    if rv_num_1 >= rv_num_2:
+        return rv_num_1
+    else:
+        return rv_num_2
+
+def main():
+    T = int(input('test: '))
+    for cnt in range(T):
+        num_1, num_2 = two_number(cnt)
+        read_num_1, read_num_2 = read_number(num_1, num_2)
+        answer = sangsu_answer(read_num_1, read_num_2)
+        print(f'칠판에는 {num_1}, {num_2}가 적혀 있습니다.')
+        print(f'상근이는 {read_num_1}, {read_num_2}라고 읽습니다.')
+        print(f'그리고 {answer}가 더 크다고 답합니다.')
+
+if __name__ == "__main__":
+    import random
+    main()
+
+# fin.
