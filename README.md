@@ -14,6 +14,8 @@
 
 - ML/DL 기초 공부: [https://ydonchoi.notion.site/AI-c4440b891869423ba5d8c362c34bedff?pvs=4]
 
+- 코칭 스터디 참여: [https://ydonchoi.notion.site/2024_-_-_-9c30a3fae3d54741bbe2a5653b42e86f]
+
 - 코딩 문제 풀이: [https://ydonchoi.notion.site/3383a883a66f48e690a4137b851b8d87]
 
 ※ 소소한 일상 기록하는 개인 밴드:  [band.us/@ydonchoi]
