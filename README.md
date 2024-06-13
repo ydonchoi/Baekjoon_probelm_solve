@@ -16,8 +16,6 @@
 
 - 코칭 스터디 참여: [https://ydonchoi.notion.site/2024-9c30a3fae3d54741bbe2a5653b42e86f?pvs=74]
 
-- 코딩 문제 풀이: [https://ydonchoi.notion.site/3383a883a66f48e690a4137b851b8d87]
-
 - SQL 입문 공부: [https://ydonchoi.notion.site/SQL-7d71f2b362da416ca2642e46db2fd9cd]
 
 ※ 소소한 일상 기록하는 개인 밴드:  [band.us/@ydonchoi]
