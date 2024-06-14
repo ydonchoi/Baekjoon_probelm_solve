@@ -14,6 +14,8 @@
 
 - ML/DL 기초 공부: [https://ydonchoi.notion.site/AI-c4440b891869423ba5d8c362c34bedff?pvs=4]
 
+- 데이터분석 기초 공부: [https://ydonchoi.notion.site/1-a1653c45a6a04a01a35a1de748c816ec]
+
 - 코칭 스터디 참여: [https://ydonchoi.notion.site/2024-9c30a3fae3d54741bbe2a5653b42e86f?pvs=74]
 
 - SQL 입문 공부: [https://ydonchoi.notion.site/SQL-7d71f2b362da416ca2642e46db2fd9cd]
