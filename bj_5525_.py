@@ -23,22 +23,35 @@
 '''
 
 # My solution_revised(24.06.15.)
-# 테스트가 안되어서 우선 저장하고 테스트 확인 후, 계속 수정할 예정.
+def gen_sentence(num: int) -> str:
+    return ''.join([random.choice(['I','O']) for _ in range(num)])
 
-start = 0
-indicator = 'IO'
-idx = 0
-PN = []
-S = 'IIOIIIIIOOIIIIIOIIIIIOIOIOIIIIOIIOIIOOOOOIIIIOOOIOOOIOIOOOOOIOIOIIIOIOOOOIOOOIOIOOIIIOOIOII'
-while idx < len(S):
-    if S[idx:idx+2] == indicator:
-        idx += len(indicator)
-    else:
-        if (idx-start) > 1:
-            PN.append(S[start:idx])
-            start = idx
+def search_IOI(S: str, indicator: str = 'IO') -> list:
+    start = 0
+    idx = 0
+    PN = []
+    while idx < len(S):
+        if S[idx:idx+3] == indicator+'I':
+            idx += 2
+        else:
+            if (idx-start) > 1:
+                PN.append(S[start:idx+1])
             idx += 1
+            start = idx
+    
+    return PN
 
-print(len(PN))
+def main():
+    test = int(input('test trial number: '))
+    cnt = 0
+    while cnt < test:
+        cnt += 1
+        S = gen_sentence(int(input('the length of generating sentece S: ')))
+        PN = search_IOI(S)
+        print(len(PN), PN)
+
+if __name__ =='__main__':
+    import random
+    main()
 
 # fin.
