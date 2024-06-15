@@ -22,24 +22,16 @@
 
 
 # My solution_revised (24. 06. 15.)
-def check_storage() -> dict:
-    storage = {
-    'www.abc.kr':'ABCKR',
-    'www.korea.kr':'KOREA',
-    'www.coding.kr':'CODING',
-    'www.computer.kr':'COMKR',
-    'www.Sam-Sung.kr':'SAM'
-    }
-    return storage
 
-def search_PW(key: str) -> str:
+def search_PW(storage: dict, key: str) -> str:
     ''' search stored password via site address return stored password.
     if not exist, return whether store new password or not.'''
-    storage = check_storage()
+
     if not storage.get(key):
         Q = input('No password. Do you generate and store new random password? (y/n)').lower()
-        return True if Q == 'y' else False
+        return Q
     return storage.get(key)
+
 
 def gen_random_PW(num: int) -> str:
     '''generates password mixed by upper and lower letters returns random password expressed string type'''
@@ -49,26 +41,36 @@ def gen_random_PW(num: int) -> str:
     password = ''.join(random.choice(string_pool) for _ in range(length))
     return password
 
-def store_PW(new_site: str) -> dict:
+
+def store_PW(storage: dict, new_site: str) -> dict:
     '''stores new password returns whole stored site addresses and passwords'''
 
-    storage = check_storage()
     num = int(input('wanna generate the length of new random password: '))
-    storage[new_site] = gen_random_PW(num)    # not working.... why didn't it store?? T.T
+    new_password = gen_random_PW(num)
+    storage[new_site] = new_password
     return storage
 
 
 def main():
-    storage = check_storage()
+    # 아직 실력이 부족한지.. storage를 별도로 관리하려고 해봤는데.. 동기화시키는 것 못해서 신규 pw는 저장이 안됨 ㅠ
+    # 그냥 storage 별도 관리하는 건 포기...ㅠ.ㅠ
+    storage = {
+    'www.abc.kr':'ABCKR',
+    'www.korea.kr':'KOREA',
+    'www.coding.kr':'CODING',
+    'www.computer.kr':'COMKR',
+    'www.Sam-Sung.kr':'SAM'
+    }
+    
     test = int(input('whole test number: '))
     cnt = 0
     while cnt < test:
-        cnt += 1
         search_site = input('input site address searching password: ')
-        check_password = search_PW(search_site)
-        if check_password == True:
-            store_new_password = store_PW(search_site)
+        check_password = search_PW(storage, search_site)
+        if check_password == 'y':
+            storage = store_PW(storage, search_site)
         else:
+            cnt += 1
             print(f'URL: {search_site}, Password: {check_password}')
             
 
