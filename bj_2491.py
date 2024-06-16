@@ -24,7 +24,6 @@ def gen_progression(num: int) -> str:
 def increase_length(progression: str) -> int:
     ''' searches numbers greater than prior number and returns length '''
     inc_length = 0
-    dec_length = 0
     length = 1
     ind = 0
     while ind < len(progression)-1:
