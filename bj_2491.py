@@ -11,15 +11,20 @@
 # (단, 연속 증가 또는 감소 구간 길이가 3 이상인 구간이 없을 경우 길이는 2로 출력)
 ##################################################
 
+''' increase_length와 decrease_length가 중복되는 형태라서, 조금 더 간소화하고 싶다..ㅠ '''
+
 # My solution_revised(24.06.16.)
 def gen_progression(num: int) -> str:
+    ''' creates sequence of numbers from inputting number '''
     progression = str(random.randint(1,9)) + ''.join([str(random.randint(0,9)) for _ in range(num-1)])
     if progression[0] == '0':
         progression[0] = str(random.randint(1,9))
     return progression
 
 def increase_length(progression: str) -> int:
+    ''' searches numbers greater than prior number and returns length '''
     inc_length = 0
+    dec_length = 0
     length = 1
     ind = 0
     while ind < len(progression)-1:
@@ -33,11 +38,14 @@ def increase_length(progression: str) -> int:
     return inc_length
 
 def decrease_length(progression: str) -> int:
+    ''' searches numbers greater than prior number and returns length '''
     dec_length = 0
     length = 1
     ind = 0
     while ind < len(progression)-1:
         ind += 1
+
+
         if progression[ind-1] > progression[ind]:
             length += 1
         else:
@@ -47,6 +55,8 @@ def decrease_length(progression: str) -> int:
     return dec_length
 
 def compare_res(inc_length: int, dec_length: int) -> int:
+    ''' compares numbers with incresing max length and decreasing max length and returns max length '''
+
     if inc_length >= dec_length:
         res = inc_length
     else:
@@ -56,13 +66,13 @@ def compare_res(inc_length: int, dec_length: int) -> int:
     return res
 
 def main():
+    test = int(input("whole test's trial number: "))
     num = int(input('How many digits do you want to create?: '))
-    for _ in range(10):
+    for _ in range(test):
         progression = gen_progression(num)
         inc_length = increase_length(progression)
         dec_length = decrease_length(progression)
-        print(len(progression), '|', progression)
-        print(compare_res(inc_length, dec_length))
+        print(f'gen_lenght: {len(progression)} | gen_seq: {progression} | result: {compare_res(inc_length, dec_length)}')
 
 if __name__ == "__main__":
     import random
