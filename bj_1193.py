@@ -30,11 +30,9 @@ def sum_of_numbers(num: int) -> int:
     return int(num*(num+1)/2)
 
 def gen_fraction(num: int) -> int:
-	new_num = num - 1
-	fraction = [f'{1+i}/{new_num-i}' for i in range(new_num)]
-	if new_num % 2 == 0:
-		return fraction
-	return	fraction[::-1]
+    new_num = num - 1
+    fraction = [f'{1+i}/{new_num-i}' for i in range(new_num)]
+    return fraction if new_num % 2 == 0 else fraction[::-1]
 
 def main():
 	number = int(input('input number: '))
