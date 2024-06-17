@@ -25,14 +25,12 @@ def check_alphabet(word: str) -> dict:
 	return checker
 
 def word_list(num: int) -> list:
-	words = [input('wanna check english word').lower() for _ in range(num)]
-	return words
+	return [input('wanna check english word').lower() for _ in range(num)]
 
 def sort_checker(checker: dict) -> dict:
 	''' new dictionary sorted by value in ordered by descending '''
 	sorting = sorted(checker.items(), key=lambda x: x[1], reverse=True)
-	new_checker = {element[0]:element[1] for element in sorting}
-	return new_checker
+	return {element[0]:element[1] for element in sorting}
 
 def main():
 	test = int(input('whole trial num: '))
