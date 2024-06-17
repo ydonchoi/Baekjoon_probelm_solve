@@ -1,11 +1,19 @@
-# #파이썬 #백준 
-# #11653번문제 #소인수분해문제
-# - 출처: 나의 네이버 블로그 (blog.naver.com/ydonchoi83)
-# - 기간: 2022.06.19.~2022.07.01.
+# 문제번호: 11653
+# 소인수 분해
+# url: https://www.acmicpc.net/problem/11653
+# 출처: 나의 네이버 블로그 (blog.naver.com/ydonchoi83)
+# 2022.06.19.~2022.07.01.
 
+#########################
 # [문제]
 # 정수 N이 주어졌을 때, 소인수분해하는 프로그램을 작성하시오.
-# - 첫째 줄에 정수 N (1 ≤ N ≤ 10,000,000)이 주어진다.
+# 
+# 첫째 줄에 정수 N (1 ≤ N ≤ 10,000,000)이 주어진다.
+#########################
+
+
+# be about to revise soon if there is... Below is a prior solution.
+
 
 import random
 def prime_factor(n):
