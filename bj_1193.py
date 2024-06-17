@@ -3,6 +3,7 @@
 # url: https://www.acmicpc.net/problem/1193
 # 출처: 나의 네이버 블로그 (blog.naver.com/ydonchoi83)
 # 2022.06.19.~2022.07.01.
+# revise: 2024. 06. 18.
 
 #########################
 ## (문제)
@@ -17,14 +18,34 @@
 # X가 주어졌을 때, X번째 분수를 구하는 프로그램을 작성하시오.
 #########################
 
-# be about to revise... Below is a prior solution.
+''' (approach)
+1. 나열된 분수의 지그재그 순서에는 일정한 패턴이 존재
+2. 지그재그 순서의 터닝 포인트에서 1/분모 -> 분자/1 -> 1/분모 -> 분자/1 순으로 번갈아 나타남
+3. 1로 시작하는 곳에서는 +1, 분자 또는 분모에서 시작하는 곳에서는 -1이 되며, 합계는 변화 없음
+4. 터닝 포인트부터 지그재그 이동 횟수는 분자 또는 분모와 같음
+'''
 
-x = int(input())
-arr = []
-for i in range(2, 100):
-	for j in range(1, 100):
-		if i-j > 0:
-			arr.append(str(j)+'/'+str(i-j))
-print(arr[x+1])
+# My Solution_revised (24.06.18.)
+def sum_of_numbers(num: int) -> int:
+    return int(num*(num+1)/2)
+
+def gen_fraction(num: int) -> int:
+	new_num = num - 1
+	fraction = [f'{1+i}/{new_num-i}' for i in range(new_num)]
+	if new_num % 2 == 0:
+		return fraction
+	return	fraction[::-1]
+
+def main():
+	number = int(input('input number: '))
+	idx = 0
+	while sum_of_numbers(idx) < number:
+		idx += 1
+	move = number - sum_of_numbers(idx)
+	fraction_list = gen_fraction(idx+1)
+	print(fraction_list[move-1])
+
+if __name__ == '__main__':
+	main()
 
 # fin.
