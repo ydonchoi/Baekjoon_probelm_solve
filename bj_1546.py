@@ -3,7 +3,7 @@
 # url: https://www.acmicpc.net/problem/1546
 # 출처: 나의 네이버 블로그 (blog.naver.com/ydonchoi83)
 # 2022.06.19.~2022.07.01.
-# revise 2024. 06. 18.
+# Revised on 2024. 06. 18. - Improved score normalization logic for better accuracy
 
 #########################
 # [문제]
@@ -18,17 +18,18 @@
 
 
 # My Solution_revised(24.06.18.)
-def transform_score(scores: list) -> float:
+def transform_score(scores: list) -> list[float]:
 	return [round(score/max(scores)*100, 2) for score in scores]
 
-def get_score(num: int) -> list:
-	return [random.randint(0, 100) for _ in range(num)]
+def get_score(num: int) -> list[int]:
+	scores = [random.randint(0, 100) for _ in range(num)]
+	if sum(scores) == 0:
+		scores[0] = random.randint(1, 100)
+	return scores
 
 def main():
 	num = int(input('number of subjects: '))
 	scores = get_score(num)
-	if sum(scores) == 0:
-		scores[-1] = random.randint(1, 100)
 	new_score = transform_score(scores)
 	new_avg = round(sum(new_score)/len(scores), 2)
 	print(new_avg)
