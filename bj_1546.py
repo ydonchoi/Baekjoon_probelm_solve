@@ -3,6 +3,7 @@
 # url: https://www.acmicpc.net/problem/1546
 # 출처: 나의 네이버 블로그 (blog.naver.com/ydonchoi83)
 # 2022.06.19.~2022.07.01.
+# revise 2024. 06. 18.
 
 #########################
 # [문제]
@@ -16,21 +17,26 @@
 #########################
 
 
-# be about to revise soon... Below is a prior solution.
+# My Solution_revised(24.06.18.)
+def transform_score(scores: list) -> float:
+	return [round(score/max(scores)*100, 2) for score in scores]
+
+def get_score(num: int) -> list:
+	return [random.randint(0, 100) for _ in range(num)]
+
+def main():
+	num = int(input('number of subjects: '))
+	scores = get_score(num)
+	if sum(scores) == 0:
+		scores[-1] = random.randint(1, 100)
+	new_score = transform_score(scores)
+	new_avg = round(sum(new_score)/len(scores), 2)
+	print(new_avg)
 
 
-import random
-N = input('과목 수:')
-score = []
-new_score = []
-sum = 0
-for i in range(int(N)):
-	score.append(random.randint(0,100))
-for i in range(int(N)):
-	new_score.append(round(score[i]/max(score)*100, 2))
-	sum += new_score[i]
-print('기존 과목별 점수는 {}점이며,\n새로운 과목별 점수는 {}접이다.'.format(score, new_score))
-print('세준이의 새로운 평균은 {}점입니다.'.format(int(sum/len(new_score))))
+if __name__ == "__main__":
+	import random
+	main()
 
 
 # fin.
