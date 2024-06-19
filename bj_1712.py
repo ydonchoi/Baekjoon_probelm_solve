@@ -19,19 +19,18 @@
 # just modifies code expressions on prior's.. 24.06.19.
 
 def get_revenue(sell_price:int, fixed_cost:int, var_cost:int, quantity_produced:int) -> int:
-	return ((sell_price-var_cost)*qty_produce)-fixed_cost
+	return ((sell_price-var_cost)*quantity_produced)-fixed_cost
 
 def main():
 	sell_price = int(input("sell_price: "))
 	fixed_cost = int(input("fix_price: "))
 	var_cost = int(input("var_price: "))
-	qty_produce = 0
-	while get_revenue(sell_price, fixed_cost, var_cost, qty_produce) <= 0:
-		qty_produce += 1
-	print('break-even point: ',qty_produce)
+	quantity_produced = 0
+	while get_revenue(sell_price, fixed_cost, var_cost, quantity_produced) <= 0:
+		quantity_produced += 1
+	print('break-even point: ',quantity_produced)
 
 if __name__ == "__main__":
 	main()
-
 
 # fin.
