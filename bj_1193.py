@@ -29,7 +29,7 @@
 def sum_of_numbers(num: int) -> int:
     return int(num*(num+1)/2)
 
-def gen_fraction(num: int) -> int:
+def gen_fraction(num: int) -> list[str]:
     new_num = num - 1
     fraction = [f'{1+i}/{new_num-i}' for i in range(new_num)]
     return fraction if new_num % 2 == 0 else fraction[::-1]
