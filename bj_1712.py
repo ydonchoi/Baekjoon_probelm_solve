@@ -16,19 +16,22 @@
 # A, B, C가 주어졌을 때, 손익분기점을 구하는 프로그램을 작성하시오.
 #########################
 
-# be about to revise soon... Below is a prior solution.
+# just modifies code expressions on prior's.. 24.06.19.
 
-a = int(input('고정비용(만원):'))
-b = int(input('가변비용(만원):'))
-c = int(input('노트북 판매가격(만원):'))
-x = 0
-while True:
-	x += 1
-	profit = (c-b)*(x-a)
-	if profit >= 0:
-		print('손일분기점의 판매량(개): ',x)
-		break
-	elif x >= 1000000:
-		print('-1'); break
+def get_revenue(sell_price:int, fixed_cost:int, var_cost:int, qty_produce:int) -> int:
+	return ((sell_price-var_cost)*qty_produce)-fixed_cost
+
+def main():
+	sell_price = int(input("sell_price: "))
+	fixed_cost = int(input("fix_price: "))
+	var_cost = int(input("var_price: "))
+	qty_produce = 0
+	while get_revenue(sell_price, fixed_cost, var_cost, qty_produce) <= 0:
+		qty_produce += 1
+	print('break-even point: ',qty_produce)
+
+if __name__ == "__main__":
+	main()
+
 
 # fin.
