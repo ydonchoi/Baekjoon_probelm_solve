@@ -18,7 +18,7 @@
 
 # just modifies code expressions on prior's.. 24.06.19.
 
-def get_revenue(sell_price:int, fixed_cost:int, var_cost:int, qty_produce:int) -> int:
+def get_revenue(sell_price:int, fixed_cost:int, var_cost:int, quantity_produced:int) -> int:
 	return ((sell_price-var_cost)*qty_produce)-fixed_cost
 
 def main():
