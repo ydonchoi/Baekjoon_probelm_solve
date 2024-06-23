@@ -37,8 +37,7 @@ def main():
 
     print(f'sum : {sum(primes)} | min : {min(primes)} | len : {len(primes)}')
     print(f'sum : {sum(primes2)} | min : {min(primes2)} | len : {len(primes2)}\n')
-    print(primes'\n')
-    print(primes2)
+    print(f'{primes}\n\n{primes2}')
 
 if __name__ == "__main__":
     from math import floor, sqrt
