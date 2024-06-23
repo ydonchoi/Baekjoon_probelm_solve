@@ -24,7 +24,7 @@ def is_prime1(num):
 
 def is_prime2(num):
     ''' the second way to check prime numbers, i.e. Eratosthenes's sieve '''
-    if num == 1 or num <= 0:
+    if num <= 1:
         return False
     for x in range(2, floor(sqrt(num))+1):
         if num % x == 0:
