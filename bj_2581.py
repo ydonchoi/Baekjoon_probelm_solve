@@ -17,10 +17,7 @@
 
 def is_prime1(num):
     ''' the first way to check prime numbers, i.e. Eratosthenes's sieve '''
-    for x in range(2, num):
-        if num % x == 0:
-            return False
-    return True
+    return all(num % x != 0 for x in range(2, num))
 
 def is_prime2(num):
     ''' the second way to check prime numbers, i.e. Eratosthenes's sieve '''
