@@ -3,6 +3,7 @@
 # url: https://www.acmicpc.net/problem/2775
 # 출처: 나의 네이버 블로그 (blog.naver.com/ydonchoi83)
 # 2022.06.19.~2022.07.01.
+# revised on 24. 06. 28.
 
 #########################
 # [문제]
@@ -13,40 +14,29 @@
 # 단, 아파트에는 0층부터 있고 각층에는 1호부터 있으며, 0층의 i호에는 i명이 산다.
 #########################
 
+# revised on 24. 06. 28.
+def gen_input(test: int) -> list[tuple]:
+	return [(random.randint(1,10), random.randint(1,10)) for _ in range(test)]
 
-# be about to revise soon... Below is a prior solution.
+def num_of_residents(floor: int, room: int):
+    if floor == 1:
+        return sum(range(1,room+1))
+    if room == 1:
+        return 1
+    return residents(floor-1, room) + residents(floor, room-1)
 
-'''(approach)
-아래에서 작성한 코드는, 주어진 문제로부터 "아파트의 시작이 1층부터 설정하였다는 점"이 차이가 있음'''
+def main():
+	num = int(input('enter the num. of test:'))
+	test = gen_input(num)
+	cnt = 0
+	for element in test:
+		cnt += 1
+		floor, room = map(int, element)
+		residents = num_of_residents(floor, room)
+		print(f"test{cnt} | the residents' number of {floor} floor {room} room is {residents}")
 
-import random
-T = random.randint(1, 10)
-APT = []
-for k in range(T):
-	tmp = []
-	for i in range(2):
-		tmp.append(random.randint(1, 10))
-	APT.append(tmp)
-print(f'전체 테스트 횟수: {T}회')
-for m in range(len(APT)):
-	H, W = map(int, APT[m])
-	print(f'\n아파트 높이: {H}층\n층별 전체 호수: {W}개')
-	lst_w = []
-	tmp = []
-	a = 0
-	for x in range(W):
-		a += 1
-		tmp.append(a)
-	lst_w.append(tmp)
-	for y in range(1, H):
-		b = [1,]
-		lst_w.append(b)
-	for r in range(1, W):
-		for q in range(1, H):
-			lst_w[q].append(lst_w[q][-1]+lst_w[q-1][r])
-	h = random.randint(1, H)
-	w = random.randint(1, W)
-	print(f'{h}동 {w}호에 거주하는 거주민 수는 {lst_w[h-1][w-1]}명입니다.')
-
+if __name__ == '__main__':
+	import random
+	main()
 
 # fin.
