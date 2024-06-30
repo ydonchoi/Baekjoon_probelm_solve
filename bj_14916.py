@@ -15,24 +15,25 @@
 
 def change_coins(R: int) -> int:
     M = R
-    for i in range(1,(R//5)+1):
-        if (R%i)%2 == 0:
-            for x in range(i+1):
-                m = ((-3*x)+R)//2
-                if M >= m: M = m
+    for i in range(1, (R // 5) + 1):
+        if (R % i) % 2 == 0:
+            for x in range(i + 1):
+                m = ((-3 * x) + R) // 2
+                if M >= m:
+                    M = m
     return R, x, M
+
 
 def main():
     money = int(input('거스름돈은 얼마인가요?:'))
     R, x, M = change_coins(money)
     print(f'거스름돈: {R}원\n5원짜리 동전: {x}개\n2원짜리 동전: {M-x}개\n최소동전갯수: {M}개')
-    
+
+
 if __name__ == '__main__':
     main()
 
-
 # fin.
-    
 
 # (모범답안1)
 # def solution(money, price):
@@ -78,4 +79,3 @@ if __name__ == '__main__':
 
 # money, price = map(int, input().split())
 # print(solution(money, price))
-

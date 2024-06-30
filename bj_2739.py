@@ -14,9 +14,9 @@
 
 
 N = input()
-for i in range(1,10):
+for i in range(1, 10):
 	tot = int(N)*i
-	print('{} X {} = {}'.format(N,i,tot))
+	print(f'{N} X {i} = {tot}')
 
 
 # fin.
