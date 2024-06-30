@@ -11,36 +11,38 @@
 ## 동규 부동산의 카탈로그에서 아파트 면적이 주어질 떄, 있을 수 없는 아파트의 수를 구하는 프로그램을 작성하시오.
 #########################
 
-def create_lent_catalogue(num:int) -> list[int]:
-    return [int(input('임대면적:')) for _ in range(num)]
+def create_rental_catalogue(num:int) -> list[int]:
+    return [random.randint(100, 10000) for _ in range(num)]
 
 def is_able_to_rent(area_list:list[int]) -> dict:
-    lentable_catalogue = {}
+    recieve_to_rent = {}
     for area in area_list:
         for x in range(1, area):
             if (area-x) % (2*x+1) == 0:
-                lentable_catalogue[area] = (x, (area-x)/(2*x+1))
-    return lentable_catalogue
+                recieve_to_rent[area] = (x, (area-x)/(2*x+1))
+    return recieve_to_rent
 
-def lent_apartment(area_list:list, lentable_catalogue:dict) -> int:
-    unable_to_lent = 0
+def is_unable_to_rent(area_list:list, recieve_to_rent:dict) -> int:
+    unable_to_recieve = 0
     for area in area_list:
-        if area in lentable_catalogue.keys():
-            print("this is an apartment to lent. would you lent?")
+        if area in recieve_to_rent.keys():
+            print(f"'{area}' is an apartment rentable.")
         else:
-            unable_to_lent += 1
-            print('꽝!!')
+            unable_to_recieve += 1
+            print(f'"{area}" is 꽝(Boom)!!')
 
-    return unable_to_lent
+    return unable_to_recieve
         
 def main():
     nums = int(input('아파트 수:'))
-    area_list = create_lent_catalogue(nums)
-    lentable_catalogue = is_able_to_rent(area_list)
-    unable_to_lent = lent_apartment(area_list, lentable_catalogue)
-    print(f'있을 수 없는 아파트 면적의 수: {unable_to_lent}')
+    area_list = create_rental_catalogue(nums)
+    print(f'rental catalogue:\n{area_list}\n')
+    able_to_rent = is_able_to_rent(area_list)
+    unable_to_recieve = is_unable_to_rent(area_list, able_to_rent)
+    print(f'\n있을 수 없는 아파트 면적의 수: {unable_to_recieve}')
 
 if __name__ == '__main__':
+    import random
     main()
 
 # fin.
