@@ -15,18 +15,18 @@
     And this time, I have learnt two ways more efficient.
     So.. update adopting these ways '''
 
+
 def is_prime1(num):
     ''' the first way to check prime numbers, i.e. Eratosthenes's sieve '''
     return all(num % x != 0 for x in range(2, num))
+
 
 def is_prime2(num):
     ''' the second way to check prime numbers, i.e. Eratosthenes's sieve '''
     if num <= 1:
         return False
-    for x in range(2, floor(sqrt(num))+1):
-        if num % x == 0:
-            return False
-    return True
+    return all(num % x != 0 for x in range(2, floor(sqrt(num))+1))
+
 
 def main():
     print('you input two integers "m" and "n"(m<n) with one space between them)')
@@ -38,6 +38,7 @@ def main():
     print(f'sum : {sum(primes)} | min : {min(primes)} | len : {len(primes)}')
     print(f'sum : {sum(primes2)} | min : {min(primes2)} | len : {len(primes2)}\n')
     print(f'{primes}\n\n{primes2}')
+
 
 if __name__ == "__main__":
     from math import floor, sqrt

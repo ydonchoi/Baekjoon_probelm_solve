@@ -4,11 +4,11 @@
 # 23.10.19.
 
 ###########################
-## (문제)
-## 기계의 화면에는 A만 표시되어 있다.
-## 버튼을 1번 누르면 글자가 B로 변하고, 다시 1번 더 누르면 BA로 변한다.
-## 다시 1번 더 누르면 BAB로, 그 다음에는 BABBA로 변한다.
-## 상근이는 버튼을 누르면 화면의 모든 B는 BA로, A는 B로 바뀐다는 사실을 알게 되었다. 
+# (문제)
+# 기계의 화면에는 A만 표시되어 있다.
+# 버튼을 1번 누르면 글자가 B로 변하고, 다시 1번 더 누르면 BA로 변한다.
+# 다시 1번 더 누르면 BAB로, 그 다음에는 BABBA로 변한다.
+# 상근이는 버튼을 누르면 화면의 모든 B는 BA로, A는 B로 바뀐다는 사실을 알게 되었다.
 ###########################
 
 # (문제해결)
@@ -20,18 +20,15 @@
 # k=10: A는 34개, B는 55개 출력됨
 # * 문자열 대체 문제
 
+
 # My_solution_revised(24.06.06.)
 def convert_chr(chr: str) -> str:
-    if chr == "A":
-        return "B"
-    else:
-        return "BA"
+    return "B" if chr == "A" else "BA"
+
 
 def converting(input: str) -> str:
-    output = ''
-    for i in range(len(input)):
-        output += convert_chr(input[i])
-    return output
+    return ''.join(convert_chr(input[i]) for i in range(len(input)))
+
 
 def main():
     display = "A"
@@ -40,15 +37,12 @@ def main():
         display = converting(display)
     print(display)
 
+
 if __name__ == "__main__":
     main()
 
-
 # fin.
 
-
-
-# '''
 # (모범답안1)
 # def solution(K):
 #     a = 1
@@ -69,5 +63,3 @@ if __name__ == "__main__":
 # for _ in range(T):
 #     K = int(input())
 #     print(solution(K))
-# '''
-

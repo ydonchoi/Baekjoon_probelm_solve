@@ -28,8 +28,8 @@ def Bertrand(m):
 	for k in range(1, m+1):
 		if sieve[k]:
 			primes_blw.append(k)
-			for l in range(k*2, m+1, k):
-				sieve[l] = False
+			for j in range(k*2, m+1, k):
+				sieve[j] = False
 	# 전체 요소 리스트에서 에외 요소 리스트 제거하기
 	primes = [a for a in primes_all if not a in primes_blw or primes_blw.remove(a)]
 	return print(primes)

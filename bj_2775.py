@@ -14,26 +14,28 @@
 # 단, 아파트에는 0층부터 있고 각층에는 1호부터 있으며, 0층의 i호에는 i명이 산다.
 #########################
 
+
 # revised on 24. 06. 28.
 def gen_input(test: int) -> list[tuple]:
-	return [(random.randint(1,10), random.randint(1,10)) for _ in range(test)]
+	return [(random.randint(1, 10), random.randint(1, 10)) for _ in range(test)]
+
 
 def num_of_residents(floor: int, room: int):
-    if floor == 1:
-        return sum(range(1,room+1))
-    if room == 1:
-        return 1
-    return residents(floor-1, room) + residents(floor, room-1)
+	if floor == 1:
+		return sum(range(1, room+1))
+	if room == 1:
+		return 1
+	return num_of_residents(floor-1, room) + num_of_residents(floor, room-1)
+
 
 def main():
 	num = int(input('enter the num. of test:'))
 	test = gen_input(num)
-	cnt = 0
-	for element in test:
-		cnt += 1
+	for cnt, element in enumerate(test, start=1):
 		floor, room = map(int, element)
 		residents = num_of_residents(floor, room)
 		print(f"test{cnt} | the residents' number of {floor} floor {room} room is {residents}")
+
 
 if __name__ == '__main__':
 	import random

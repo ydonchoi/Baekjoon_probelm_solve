@@ -14,15 +14,13 @@
 # OX퀴즈의 결과가 주어졌을 때, 점수를 구하는 프로그램을 작성하시오.
 #########################
 
-
 # be about to revise soon if there is... Below is a prior solution.
-
 
 result = "OOXXXXXXXOOOOOOXXXOXOXXXXOOX"
 score = 0
 for i in range(len(result)):
-	if result[i] == "O": score += 1
+    if result[i] == "O":
+        score += 1
 print(f'획득한 점수는 {score} 점입니다.')
-
 
 # fin.

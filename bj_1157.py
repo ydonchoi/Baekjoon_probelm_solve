@@ -14,23 +14,26 @@
 # 단, 가장 많이 사용된 알파벳이 여러 개 존재하는 경우에는 ?를 출력한다.
 ##############################################
 
+
 # My solution_revised(24.06.17.)
 def check_alphabet(word: str) -> dict:
-	''' checks alphabet appearance from word, and returns appearance number per alphabet '''
 	checker = {alphabet: 0 for alphabet in string.ascii_lowercase}
 	for alp in word:
-		for k, v in checker.items():
+		for k in checker:
 			if alp == k:
 				checker[k] += 1
 	return checker
 
+
 def word_list(num: int) -> list:
 	return [input('wanna check english word').lower() for _ in range(num)]
+
 
 def sort_checker(checker: dict) -> dict:
 	''' new dictionary sorted by value in ordered by descending '''
 	sorting = sorted(checker.items(), key=lambda x: x[1], reverse=True)
-	return {element[0]:element[1] for element in sorting}
+	return {element[0]: element[1] for element in sorting}
+
 
 def main():
 	test = int(input('whole trial num: '))
@@ -46,10 +49,12 @@ def main():
 			if v == max_appearance:
 				max_appear.append(k)
 		print(f'the most: {max_appearance} 번')
-		print(max_appear,'\n')
+		print(max_appear, '\n')
+
 
 if __name__ == "__main__":
 	import string
 	main()
+
 
 # fin.
