@@ -24,24 +24,36 @@
 → (주의) 예를 들어, 4자리 수가 주어질 때 “4826”이 한수라고 나오는 경우, 4 → 8 → 2 → 6은 등차수열이 아니므로 한수가 아니다.
 '''
 
+# (심화) 자리수를 고려하여 한수를 구하는 프로그램으로 기능 update_24.07.18
 
-# 3자리 자연수의 한수를 구하는 함수
+# 주어진 자연수까지 존재하는 전체 한수를 구하는 함수
 def equiv_num(num):
-    result = []
-    for n in range(100, num):
+    res = []
+    for n in range(100, num+1):
         n_to_str = str(n)
-        check = (int(n_to_str[0])+int(n_to_str[2]))/2
-        if check == int(n_to_str[1]):
-            result.append(n)
-    return result
+        idx = 0
+        while len(n_to_str) - idx > 2:
+            check_n = n_to_str[idx:idx+3]
+            if checker(check_n) == True:
+                idx += 1
+            else:
+                idx = len(n_to_str)
+        if idx == (len(n_to_str)-2):
+            res.append(n)
+    return res
+
+
+# 한수 여부 확인하는 함수
+def checker(check_n):
+    return int(check_n[1]) == (int(check_n[0]) + int(check_n[2]))/2
 
 
 # 주어진 자연수까지 존재하는 한수의 갯수와 한수 목록 출력
 def main():
-    num = random.randint(100,1000)
+    num = random.randint(100,100000)
     print('입력된 자연수(랜덤) = ', num)
     result = equiv_num(num)
-    print('산출된 한수의 갯수 = {}개\n산출된 한수 목록: {}'.format(len(result),result))
+    print('산출된 한수의 갯수 = {}개\n산출된 한수 목록:\n{}'.format(len(result),result))
 
 
 if __name__ == "__main__":
