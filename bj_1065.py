@@ -3,6 +3,7 @@
 # url: https://www.acmicpc.net/problem/1065
 # 출처: 나의 네이버 블로그 (blog.naver.com/ydonchoi83)
 # 2022.06.19.~2022.07.01.
+# revised on 2024.07.18.
 
 #########################
 ## (문제)
@@ -12,36 +13,40 @@
 # 첫째 줄에 1,000보다 작거나 같은 자연수 N이 주어진다.
 #########################
 
-# be about to revise.. below is a prior solution.
+''' (solution)
+- 3자리 수에서 각 자리 숫자가 등차수열을 이루는 경우, 2번째 자리 숫자는 산술평균값과 같다.
+- 예를 들어, “147”은 [1, 4, 7]이므로 공차가 3인 등차수열이다. 이때 1번째 자리 숫자인 4와 3번째 자리 숫자인 7을 평균한 값이 2번째 자리 숫자인 4가 된다.
+    → (1+7) / 2 = 8/2 = 4
+- 따라서 한수를 구하는 문제는 이러한 등차수열의 특징을 이용한다.
 
-''' (approach) [풀이과정 구상]
-한수라는 개념이 어떤 수 X가 주어졌을 때, 각 자리 수가 등차수열을 이루는 수를 말한다? 그러면 최소한 세자리 이상인 수라는 전제가 있어야. 그러면 최소 자연수는 100부터 시작.
-제시된 조건에 따르면 1000보다 작거나 같은 자연수가 주어지므로, 입력가능한 자연수는 세자리 자연수로 한정하고 공차의 범위는 최소 1부터 최대 4까지로 잡은 다음, 이를 기반으로 한수를 출력하는 기본함수 만들고 랜덤 수 입력하여 한수로 구성된 리스트를 산출하여 한수 개수 출력하는 프로그램 구현'''
+- (심화) 주어진 조건 100 ≤ N ≤ 1,000을 넘어서는 경우에 한수를 구하는 프로그램도 나중에 시간될 때 작성해보자.
+→ 이를 응용하여, 주어지는 자연수의 자리 수가 3자리, 4자리, 5자리일 때, 한수를 구하는 프로그램을 구해보자.
+→ (주의) 예를 들어, 4자리 수가 주어질 때 “4826”이 한수라고 나오는 경우, 4 → 8 → 2 → 6은 등차수열이 아니므로 한수가 아니다.
+'''
 
+
+# 3자리 자연수의 한수를 구하는 함수
 def equiv_num(num):
-	result = []
-	for i in range(1,num):
-		d = int(((i%100)//10)-(i%10))
-		if d == 0: pass
-		else:
-			if i < 100: pass
-			elif 100 <= i <= 1000:
-				if ((i//100)-(i%10)) == 2*d:
-					result.append(i)
-				else: pass
-			elif 1000 <= i <= 10000:
-				if ((i//1000) - (i%10)) == 3*d:
-					result.append(i)
-				else: pass
-			else: pass
-	return print('산출된 한수의 갯수 = {}개\n산출된 한수 목록: {}'.format(len(result),result))
+    result = []
+    for n in range(100, num):
+        n_to_str = str(n)
+        check = (int(n_to_str[0])+int(n_to_str[2]))/2
+        if check == int(n_to_str[1]):
+            result.append(n)
+    return result
 
-import random
-num = random.randint(1,10000)
-print('입력된 자연수(랜덤) = ', num)
-equiv_num(num)
-print()
-print('complete')
+
+# 주어진 자연수까지 존재하는 한수의 갯수와 한수 목록 출력
+def main():
+    num = random.randint(100,1000)
+    print('입력된 자연수(랜덤) = ', num)
+    result = equiv_num(num)
+    print('산출된 한수의 갯수 = {}개\n산출된 한수 목록: {}'.format(len(result),result))
+
+
+if __name__ == "__main__":
+    import random
+    main()
 
 
 # fin.
